@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>OpenWeb Employee Data</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="styles/styling.css">
+
+        <script src="//code.angularjs.org/1.4.6/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.4.6/angular.min.js.map"></script>
+        <script src="lib/angular-css.min.js"></script>
+        <script src="//code.angularjs.org/1.4.6/angular-route.js"></script>        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers.js"></script>
+    </head>
+    <body>        
+        <div class="pageHeaderCont">OPENWEB.COM EMPLOYEE DATA</div>
+        <div ng-controller="loadEmployeeDataController" ng-init="getAllEmployeeData()">
+            <div class="navHeaderCont">
+                <div class="filterContainer"><label>Enter Filter Here:</label> <input type="text" ng-model="filters.search"></div>
+            </div>
+            <div class="contentContainer">
+                <table class="table table-hover table-border">
+                    <thead>
+                        <tr class="customeRowStyle">
+                            <th class="listClickArea">PROFILE IMAGE</th>
+                            <th class="listClickArea">NAME</th>
+                            <th class="listClickArea">ROLE</th>
+                            <th class="listClickArea">SKILLS</th>
+                            <th class="listClickArea"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="employee in allEmployees| filter:filters.search" >
+                            <td><img src="{{employee.profileImage}}" alt="HTML5 Icon" style="width:70px;height:70px;"></td>
+                            <td class="textCellColor">{{employee.name}}</td>
+                            <td class="textCellColor">{{employee.role}}</td>                        
+                            <td>{{employee.skills}}</td>       
+                            <td><input type="button" ng-click="rowButton(employee)" value="ADD"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="contentContainer">
+                <div class="contentHeader">
+                    <h2>LOAD SAVED DATA FROM LOCAL SERVER</h2>
+                    <input type="button" ng-click="loadLocalServerData()" value="LOAD"/>
+                </div>
+                <div class="serverDataContainer">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="customeRowStyle">
+                                <th class="listClickArea">PROFILE IMAGE</th>
+                                <th class="listClickArea">NAME</th>
+                                <th class="listClickArea">ROLE</th>                                
+                                <th class="listClickArea"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="employeeFromLocal in allEmployeesFromLocalServer" >
+                                <td><img src="{{employeeFromLocal.profileImage}}" alt="HTML5 Icon" style="width:70px;height:70px;"></td>
+                                <td class="textCellColor">{{employeeFromLocal.name}}</td>
+                                <td class="textCellColor">{{employeeFromLocal.role}}</td>                                
+                                <td><input type="button" ng-click="dataDeleteButton(employeeFromLocal)" value="DELETE"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

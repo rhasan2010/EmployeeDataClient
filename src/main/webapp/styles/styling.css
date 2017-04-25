@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 25, 2017, 10:04:36 AM
+    Author     : Uzzal
+*/
+
+body{
+    padding-top: 20px;
+}
+.pageHeaderCont{
+    font-size: 15px;
+    width: 80%;
+    border: 2px solid;
+    border-color: #01A9DB;
+    height: 45px;
+    padding: 10px 20px 0px 30px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #01A9DB;
+    font-style: initial;
+    font-family: serif;
+    color: #FFFFFF;
+}
+.contentContainer{
+    width: 80%;
+    border: 2px solid;
+    /*border-radius: 25px;*/    
+    border-color: activecaption;
+    margin: 0 auto;    
+}
+
+.navHeaderCont{    
+    width: 80%;    
+    border-color: activecaption;
+    margin: 0 auto;
+    height: 60px;
+    padding-top: 15px;
+}
+
+.filterContainer{
+    width: 30%;
+    float: right;
+}
+
+.contentHeader{
+    text-align: center;
+    border-bottom: 1px solid;
+    border-color: activecaption;
+    padding-bottom: 20px;
+}
+
+
+
+/*tr.customeRowStyle td:first-child{
+
+    border-radius: 25px;
+}*/
+
+tr.customeRowStyle{
+    border-color: #01A9DB;    
+    background-color: #01A9DB;
+    color: #FFFFFF;
+}
+/*tr.customeRowStyle td:last-child{
+
+    border-radius: 25px;
+}*/
+
+.textCellColor{
+    color: #01A9DB;
+}
